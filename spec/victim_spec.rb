@@ -2,6 +2,17 @@ require 'models/victim'
 require 'test_environment'
 
 describe Victim do
+  before :all do
+    victim = Victim.find_by_id(1)
+    victim.destroy
+    victim2 = Victim.find_by_id(2)
+    victim2.destroy
+    weapon = Weapon.find_by_id(1)
+    weapon.destroy
+    weapon2 = Weapon.find_by_id(2)
+    weapon2.destroy
+  end
+  
   describe '#valid?' do
     context 'when given a name' do
       it 'returns true' do

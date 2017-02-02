@@ -5,6 +5,6 @@ ActiveRecord::Base.establish_connection(
   adapter:  'postgresql',
   host:     'localhost',
   database: 'murder_api_test',
-  username: 'bryce',
+  username: 'DougEisner',
   password: ''
 )

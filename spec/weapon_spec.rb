@@ -1,8 +1,20 @@
 require 'rspec'
+require 'pry'
 require 'models/weapon'
 require 'test_environment'
 
 describe Weapon do
+  # before :all do
+  #   victim = Victim.find_by_id(1)
+  #   victim.destroy
+  #   victim2 = Victim.find_by_id(2)
+  #   victim2.destroy
+  #   weapon = Weapon.find_by_id(1)
+  #   weapon.destroy
+  #   weapon2 = Weapon.find_by_id(2)
+  #   weapon2.destroy
+  # end
+
   describe '#valid?' do
     context 'when a weapon has a name and a kind' do
       it 'returns true' do
@@ -39,13 +51,14 @@ describe Weapon do
 
   describe '#victims' do
     it 'returns victims' do
-      weapon = Weapon.create(name: 'Horse-Dagger', kind: 'melee')
+      weapon = Weapon.create(name: 'Hammer', kind: 'tool')
       Victim.create(name: 'Bert', weapon: weapon)
       Victim.create(name: 'Bruce', weapon: weapon)
 
       expect(weapon.victims.length).to eq 2
-      expect(weapon.victims.first.name).to eq 'Bert'
-      expect(weapon.victims.last.name).to eq 'Bruce'
+      # binding.pry
+      expect(weapon.victims.last.name).to eq 'Bert'
+      expect(weapon.victims.first.name).to eq 'Bruce'
     end
   end
 end
